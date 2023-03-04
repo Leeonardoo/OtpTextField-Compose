@@ -28,7 +28,6 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.*
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import androidx.core.text.isDigitsOnly
 import io.leeonardoo.otptextfield.ui.theme.OtpTextFieldComposeTheme
@@ -279,71 +278,14 @@ private fun OutlinedOtpTextFieldPreview() {
         Surface {
             Column {
                 var text by remember { mutableStateOf("") }
-                var errorMessage by remember { mutableStateOf<String?>(null) }
-                var helperText by remember { mutableStateOf<String?>(null) }
-                var enabled by remember { mutableStateOf(true) }
-                var readOnly by remember { mutableStateOf(false) }
-                var visualTransformation by remember { mutableStateOf(VisualTransformation.None) }
 
                 OutlinedOtpTextField(
                     modifier = Modifier.fillMaxWidth(),
                     value = text,
                     onValueChange = { text = it },
-                    errorMessage = errorMessage,
-                    helperText = helperText,
-                    enabled = enabled,
-                    readOnly = readOnly,
-                    visualTransformation = visualTransformation,
                     requestFocus = true,
                     clearFocusWhenFilled = true
                 )
-
-                Spacer(modifier = Modifier.height(24.dp))
-
-                Button(
-                    onClick = {
-                        errorMessage = if (errorMessage.isNullOrBlank()) {
-                            LoremIpsum(3).values.joinToString(" ")
-                        } else {
-                            null
-                        }
-                    }
-                ) {
-                    Text(text = "Toggle error")
-                }
-
-                Button(
-                    onClick = {
-                        helperText = if (helperText.isNullOrBlank()) {
-                            LoremIpsum(3).values.joinToString(" ")
-                        } else {
-                            null
-                        }
-                    }
-                ) {
-                    Text(text = "Toggle helper text")
-                }
-
-                Button(onClick = { enabled = !enabled }) {
-                    Text(text = "Toggle enabled")
-                }
-
-                Button(onClick = { readOnly = !readOnly }) {
-                    Text(text = "Toggle read-only")
-                }
-
-                Button(
-                    onClick = {
-                        visualTransformation =
-                            if (visualTransformation == VisualTransformation.None) {
-                                PasswordVisualTransformation()
-                            } else {
-                                VisualTransformation.None
-                            }
-                    }
-                ) {
-                    Text(text = "Toggle visualTransformation")
-                }
             }
         }
     }
