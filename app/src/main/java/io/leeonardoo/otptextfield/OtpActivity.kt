@@ -29,7 +29,7 @@ import androidx.compose.ui.tooling.preview.datasource.LoremIpsum
 import androidx.compose.ui.unit.dp
 import io.leeonardoo.otptextfield.ui.theme.OtpTextFieldComposeTheme
 
-class MainActivity : ComponentActivity() {
+class OtpActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {

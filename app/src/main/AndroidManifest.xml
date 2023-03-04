@@ -13,9 +13,8 @@
         android:theme="@style/Theme.OtpTextFieldCompose"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".OtpActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.OtpTextFieldCompose">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
